@@ -22,8 +22,10 @@ def tracked():
 def markers():
     found = {}
     for f in tracked():
-        if not f.startswith(SCAN_ROOTS) or f.startswith("scripts/") or pathlib.Path(f).suffix not in CODE_EXT:
-            continue  # scripts/ holds the checker itself, which names the marker without carrying one
+        if not f.startswith(SCAN_ROOTS) or pathlib.Path(f).suffix not in CODE_EXT:
+            continue
+        if f.startswith("scripts/") and f.endswith(".py"):
+            continue  # the checkers themselves name the marker without carrying one; Godot .gd files in scripts/ are still scanned
         try:
             text = pathlib.Path(f).read_text(encoding="utf-8", errors="ignore")
         except OSError:
