@@ -22,8 +22,8 @@ def tracked():
 def markers():
     found = {}
     for f in tracked():
-        if not f.startswith(SCAN_ROOTS) or pathlib.Path(f).suffix not in CODE_EXT:
-            continue
+        if not f.startswith(SCAN_ROOTS) or f.startswith("scripts/") or pathlib.Path(f).suffix not in CODE_EXT:
+            continue  # scripts/ holds the checker itself, which names the marker without carrying one
         try:
             text = pathlib.Path(f).read_text(encoding="utf-8", errors="ignore")
         except OSError:
@@ -56,8 +56,9 @@ def resolve(shorthand, files):
 def main():
     found, table = markers(), rows()
     files = set(tracked())
-    if not table:
-        sys.exit("FAIL: no rows parsed from docs/provisional.md")
+    if not table and not found:
+        print("OK: no PROVISIONAL markers and an empty register — nothing to reconcile.")
+        return 0
     errors, covered = [], set()
 
     for decision, cell in table:
