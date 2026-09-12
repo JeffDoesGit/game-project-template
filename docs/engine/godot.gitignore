@@ -1,0 +1,7 @@
+.godot/
+.import/
+export/
+*.translation
+.mono/
+data_*/
+mono_crash.*.json

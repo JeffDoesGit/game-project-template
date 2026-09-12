@@ -1,0 +1,18 @@
+name: tier1
+# Engine-free checks (CLAUDE.md 7.2). Required status check on main.
+# Engine build/test checks are added per ENGINE.md in P0-2.
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  tier1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { lfs: false }
+      - name: Provisional register parity (CLAUDE.md 1.6)
+        run: python3 scripts/check_provisional.py
+      - name: Roadmap hygiene
+        if: always()
+        run: python3 scripts/check_roadmap.py
