@@ -1,4 +1,4 @@
-# ENGINE.md — Unreal Engine {{ENGINE_VERSION}}
+# ENGINE.md — Unreal Engine
 
 ## Setup (P0-1, via Claude Code on the machine with the engine installed)
 1. Find the engine: `%PROGRAMDATA%\Epic\UnrealEngineLauncher\LauncherInstalled.dat` → InstallLocation for {{ENGINE_VERSION}}. Report it. Do not assume `C:\Program Files\Epic Games`.
