@@ -21,4 +21,6 @@ A repeatable starting point for a solo game project run with Claude: rules, desi
 
 ## Placeholders
 
-`{{GAME_NAME}}` · `{{REPO}}` (owner/name) · `{{OWNER}}` · `{{ENGINE}}` (`godot` or `unreal`) · `{{ENGINE_VERSION}}` · `{{TOKEN_FILE}}`
+Written in files as `{{NAME}}`; listed here without braces so this line survives substitution:
+
+`GAME_NAME` · `REPO` (owner/name) · `OWNER` · `ENGINE` (`godot` or `unreal`) · `ENGINE_VERSION` · `TOKEN_FILE`
