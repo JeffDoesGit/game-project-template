@@ -1,4 +1,4 @@
-# ENGINE.md — Godot {{ENGINE_VERSION}}
+# ENGINE.md — Godot
 
 ## Setup (P0-1, via Claude Code on the machine with Godot installed)
 1. Confirm `godot --version` matches {{ENGINE_VERSION}}. Report the path.
