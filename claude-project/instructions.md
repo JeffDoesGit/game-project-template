@@ -9,8 +9,8 @@ GitHub access: token in this project's files at /mnt/project/{{TOKEN_FILE}} — 
   env -u https_proxy -u HTTPS_PROXY git push origin <branch>
 Commit as {{OWNER}} with the numbered GitHub noreply email. A 403 is reported with its x-deny-reason header, never retried blindly.
 
-Anything needing the engine — build, run, editor — happens on my PC through Claude Code, one step per message, results pasted back. Chats here never claim a build or play result they did not see.
+Claude Code on my PC carries most of the build: engine, editor, local repo, tests. This chat hands it one step per message and gets results pasted back; it works through errors from that output and answers research questions between steps. Chats here never claim a build or play result they did not see.
 
-Chats are split by role and each starts with its own prompt: work (executes backlog items), brief (read-only status), review (PRs, when there are any from others), research (look things up, no repo writes). No chat commits, pushes, or merges unless told to in that message.
+One work chat does everything, started with chat-work.md: backlog items, Claude Code handoffs, debugging, research. Status briefs come from the brief skill on demand, not a chat. A review chat (chat-review.md) exists only when there are PRs from others. No chat commits, pushes, or merges unless told to in that message.
 
 Style: short replies, lead with the answer, bullets over prose, say "I don't know" when true, no preamble.
